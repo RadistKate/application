@@ -17,13 +17,13 @@ public class OrderTest {
     private WebDriver driver;
 
     @BeforeAll
-    static void setUpAll() {
+    public static void setUpAll() {
         WebDriverManager.chromedriver().setup();
 
     }
 
     @BeforeEach
-    void beforeEach() {
+    public void beforeEach() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("disable-infobars");
@@ -32,6 +32,7 @@ public class OrderTest {
         options.addArguments("--headless");
         options.addArguments("--disable-extensions");
         options.addArguments("--no-sandbox");
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
 
